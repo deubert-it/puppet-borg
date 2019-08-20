@@ -36,6 +36,9 @@
 # @param backupserver
 #   FQDN for the remote server. Will be written into the local ssh client configuration file.
 #
+# @param ssh_port
+#   SSH port for the remote server (default: 22). Will be written into the local ssh client configuration file.
+#
 # @param install_restore_script
 #   Install the restore helper via cpanm.
 #
@@ -82,6 +85,7 @@ class borg (
   Array[Stdlib::Absolutepath] $excludes,
   Array[Stdlib::Absolutepath] $includes,
   String[1] $backupserver,
+  Integer[1] $ssh_port,
   Boolean $install_restore_script,
   Stdlib::Absolutepath $restore_script_path,
   String[1] $backupdestdir,
