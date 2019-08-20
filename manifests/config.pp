@@ -50,9 +50,10 @@ class borg::config {
   }
 
   # allow non-standard ssh port, but only if it is set
-  $target_port = 22
   if $borg::ssh_port {
     $target_port = $borg::ssh_port
+  } else {
+    $target_port = 22
   }
 
   # /root/.ssh/config entry for the backup server
