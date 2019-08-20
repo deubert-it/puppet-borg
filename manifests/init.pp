@@ -85,7 +85,7 @@ class borg (
   Array[Stdlib::Absolutepath] $excludes,
   Array[Stdlib::Absolutepath] $includes,
   String[1] $backupserver,
-  Integer[1] $ssh_port,
+  Integer[1] $ssh_port                             = 22,
   Boolean $install_restore_script,
   Stdlib::Absolutepath $restore_script_path,
   String[1] $backupdestdir,

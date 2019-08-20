@@ -49,13 +49,6 @@ class borg::config {
     user     => 'root',
   }
 
-  # allow non-standard ssh port, but only if it is set
-  if $borg::ssh_port {
-    $target_port = $borg::ssh_port
-  } else {
-    $target_port = 22
-  }
-
   # /root/.ssh/config entry for the backup server
   ssh::client::config::user{'root':
     ensure        => present,
@@ -65,7 +58,7 @@ class borg::config {
         'User'         => $borg::username,
         'IdentityFile' => '~/.ssh/id_ed25519_borg',
         'Hostname'     => $borg::backupserver,
-        'Port'         => $target_port,
+        'Port'         => $borg::ssh_port,
       },
     },
   }
